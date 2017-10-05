@@ -1,0 +1,21 @@
+    <view class="item-avatar-lg" bindtap="goEdit">
+        <image src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+        <view class="text_box padding">
+            <view class="flex">
+                <text class="title">{{userInfo.nickName}}</text>
+            </view>
+            <view class="flex">
+                <text class="title">地址：{{userInfo.country}} {{userInfo.province}} {{userInfo.city}}</text>
+            </view>
+        </view>
+    </view>
+<scroll-view scroll-y="true">
+    <view class="graySpace"></view>
+    <view id="inputbox" wx:for="{{list}}" wx:for-item="item">
+        <view class="graySpace"></view>
+        <view class="container" wx:for="{{item.list_tool}}" wx:for-item="i" data-log="{{i.text}}"  >
+            <view class="wa-input-label">{{i.text}}:</view>
+            <view class="wa-input-label"><input  id="{{i.name}}" bindblur="inputchange" value="{{userDetail[i.name]}}" /> </view>              
+        </view>
+    </view>
+</scroll-view>
